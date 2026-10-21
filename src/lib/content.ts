@@ -1,0 +1,31 @@
+import { prisma } from "@/lib/prisma";
+export const defaultServices = [
+  { slug: "b2b-lead-generation", title: "B2B Lead Generation", shortDescription: "Researched, qualified prospects matched to your ideal customer profile.", description: "We identify companies that fit your ideal customer profile, map decision-makers, verify contact details and qualify prospects against your agreed criteria.", features: ["Ideal customer profile definition", "Target-account research", "Decision-maker identification", "Contact verification", "Lead qualification"], bestFor: "Teams that want a steady supply of well-researched prospects.", icon: "target" },
+  { slug: "appointment-setting", title: "Appointment Setting", shortDescription: "Qualified meetings placed directly on your sales team's calendar.", description: "We engage prospects, manage initial conversations and book qualified meetings with your sales team.", features: ["Outreach and follow-up", "Initial objection handling", "Qualification against agreed criteria", "Calendar booking and confirmations"], bestFor: "Sales teams that want more time in conversations and less time prospecting.", icon: "calendar-check" },
+  { slug: "email-outreach", title: "Email Outreach", shortDescription: "Personalised email sequences built to start relevant conversations.", description: "Multi-step email campaigns built around your offer, audience and market.", features: ["Messaging strategy", "Sequence writing", "Segmentation", "Reply management", "Testing and optimisation"], bestFor: "Companies with a clear offer and defined audience.", icon: "mail" },
+  { slug: "linkedin-outreach", title: "LinkedIn Outreach", shortDescription: "Relationship-led social selling for key decision-makers.", description: "Professional outreach that builds familiarity with target accounts and complements email campaigns.", features: ["Messaging guidance", "Connection and follow-up sequences", "Target-account engagement", "Reporting"], bestFor: "Senior-level buyers and longer sales cycles.", icon: "network" },
+  { slug: "market-account-research", title: "Market & Account Research", shortDescription: "Insight before activity: market maps, ICPs and target accounts.", description: "We map markets and define target accounts so you can make informed decisions before outreach begins.", features: ["ICP development", "Account segmentation", "Decision-maker mapping", "Competitor snapshots", "Buying-signal research"], bestFor: "Companies entering a new region or refining targeting.", icon: "map" },
+  { slug: "data-verification", title: "Data Verification & Enrichment", shortDescription: "Clean, current contact and company data your CRM can rely on.", description: "We verify, clean and enrich existing lists to improve campaign quality.", features: ["Contact verification", "Duplicate cleanup", "Company and role enrichment", "CRM-ready formatting"], bestFor: "Teams with existing databases that need attention.", icon: "database" }
+];
+export async function getServices() {
+  try { const items = await prisma.service.findMany({ where: { isPublished: true }, orderBy: { sortOrder: "asc" } }); return items.length ? items : defaultServices; }
+  catch { return defaultServices; }
+}
+export const defaultMarkets = [
+  { name: "United States", slug: "usa", description: "Focused segments, role-specific messaging and disciplined follow-up for a competitive B2B market.", complianceNote: "Campaigns should be reviewed for applicable CAN-SPAM requirements." },
+  { name: "Canada", slug: "canada", description: "Relationship-aware outreach with attention to local audiences, language and business expectations.", complianceNote: "Campaigns should be reviewed for applicable CASL requirements." },
+  { name: "Middle East", slug: "middle-east", description: "Careful attention to introductions, local working weeks, holidays and country-specific business culture.", complianceNote: "Requirements vary by country; obtain local compliance review." },
+  { name: "Australia", slug: "australia", description: "Concise, practical messaging adapted to local business hours and time zones.", complianceNote: "Campaigns should be reviewed for the Spam Act and privacy requirements." }
+];
+export const defaultIndustries = ["Software, SaaS and IT services", "Staffing, recruitment and HR services", "Real estate and property technology", "Financial services and fintech", "Manufacturing and industrial", "Logistics and supply chain", "Healthcare and life sciences", "Professional and business services", "Marketing, advertising and creative agencies", "Education and training providers"];
+export const defaultFaqs = [
+  { question: "What does Propspora Leads do?", answer: "We research target companies, identify and verify decision-makers, and run personalised outreach designed to create qualified conversations and booked meetings." },
+  { question: "Which regions do you work in?", answer: "We support B2B campaigns targeting the USA, Canada, the Middle East and Australia." },
+  { question: "How do you define a qualified lead?", answer: "We agree on qualification criteria at the start, typically industry, company size, role, need and timing." },
+  { question: "Do you guarantee leads or meetings?", answer: "We do not make blanket guarantees. Outcomes depend on your offer, market and sales process. We commit to a rigorous process and transparent reporting." },
+  { question: "Can you work with our CRM and sales team?", answer: "We can deliver leads in a CRM-ready format and coordinate meeting handovers with your sales team." }
+];
+export async function getSiteSettings() {
+  const defaults = { siteName: "Propspora Leads", tagline: "Qualified conversations. Real pipeline.", logoUrl: "/brand/pl-mark.svg", primaryColor: "#102A4C", accentColor: "#0EA5A4", goldColor: "#C7A45A", contactEmail: "hello@example.com", contactPhone: "", officeAddress: "", footerText: "Research-led outreach for ambitious B2B teams.", defaultSeoTitle: "Propspora Leads | B2B Lead Generation", defaultSeoDescription: "Research-led B2B lead generation, appointment setting and personalised outreach." };
+  try { return { ...defaults, ...(await prisma.siteSettings.findUnique({ where: { id: "singleton" } }) ?? {}) }; } catch { return defaults; }
+}

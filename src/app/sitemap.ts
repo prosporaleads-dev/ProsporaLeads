@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";
+export default function sitemap(): MetadataRoute.Sitemap { const base = process.env.APP_URL ?? "http://localhost:3000"; const paths = ["", "/about", "/services", "/industries", "/markets", "/how-we-work", "/faq", "/contact"]; return paths.map(path => ({ url: `${base}${path}`, lastModified: new Date(), changeFrequency: path === "" ? ("weekly" as const) : ("monthly" as const), priority: path === "" ? 1 : path === "/services" || path === "/contact" ? 0.9 : 0.7 })); }

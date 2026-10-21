@@ -1,0 +1,2 @@
+import Image from "next/image";
+export function BrandMark({ compact = false }: { compact?: boolean }) { return <div className="flex items-center gap-3"><Image src="/brand/pl-mark.svg" alt="Propspora Leads PL monogram" width={compact ? 38 : 48} height={compact ? 38 : 48} priority className="h-auto"/><div className="leading-none"><div className="font-heading text-xl font-extrabold tracking-[0.08em] text-[#102A4C]">PROSPORA</div><div className="mt-1 text-[10px] font-semibold tracking-[0.52em] text-teal-600">LEADS</div></div></div>; }

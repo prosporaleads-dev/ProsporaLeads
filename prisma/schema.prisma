@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  EDITOR
+}
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+}
+model AdminUser {
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  passwordHash String
+  role AdminRole @default(EDITOR)
+  isActive Boolean @default(true)
+  lastLoginAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Page {
+  id String @id @default(cuid())
+  slug String @unique
+  title String
+  description String @default("")
+  status PublishStatus @default(DRAFT)
+  seoTitle String @default("")
+  seoDescription String @default("")
+  canonicalUrl String?
+  ogImage String?
+  sections Json @default("[]")
+  publishedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([status, slug])
+}
+model SiteSettings {
+  id String @id @default("singleton")
+  siteName String @default("Propspora Leads")
+  tagline String @default("Qualified conversations. Real pipeline.")
+  logoUrl String @default("/brand/pl-mark.svg")
+  faviconUrl String @default("/favicon.ico")
+  primaryColor String @default("#102A4C")
+  accentColor String @default("#0EA5A4")
+  goldColor String @default("#C7A45A")
+  contactEmail String @default("hello@example.com")
+  contactPhone String @default("")
+  officeAddress String @default("")
+  socialLinks Json @default("{}")
+  navigation Json @default("[]")
+  footerText String @default("Research-led outreach for ambitious B2B teams.")
+  defaultSeoTitle String @default("Propspora Leads | B2B Lead Generation")
+  defaultSeoDescription String @default("Research-led B2B lead generation, appointment setting and personalised outreach.")
+  updatedAt DateTime @updatedAt
+}
+model Service {
+  id String @id @default(cuid())
+  slug String @unique
+  title String
+  shortDescription String
+  description String @default("")
+  features Json @default("[]")
+  bestFor String @default("")
+  icon String @default("target")
+  sortOrder Int @default(0)
+  isPublished Boolean @default(true)
+  seoTitle String @default("")
+  seoDescription String @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([isPublished, sortOrder])
+}
+model FAQ {
+  id String @id @default(cuid())
+  question String
+  answer String
+  category String @default("General")
+  sortOrder Int @default(0)
+  isPublished Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([isPublished, sortOrder])
+}
+model Industry {
+  id String @id @default(cuid())
+  name String
+  slug String @unique
+  description String @default("")
+  sortOrder Int @default(0)
+  isPublished Boolean @default(true)
+}
+model Market {
+  id String @id @default(cuid())
+  name String
+  slug String @unique
+  description String
+  complianceNote String @default("")
+  sortOrder Int @default(0)
+  isPublished Boolean @default(true)
+}
+model Inquiry {
+  id String @id @default(cuid())
+  name String
+  email String
+  phone String?
+  company String?
+  website String?
+  targetRegions String[] @default([])
+  serviceInterest String?
+  goals String
+  consent Boolean @default(false)
+  status String @default("NEW")
+  adminNotes String @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([status, createdAt])
+  @@index([email])
+}
+model MediaAsset {
+  id String @id @default(cuid())
+  filename String
+  url String
+  mimeType String
+  sizeBytes Int
+  altText String @default("")
+  createdAt DateTime @default(now())
+}
