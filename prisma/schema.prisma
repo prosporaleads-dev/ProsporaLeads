@@ -45,7 +45,7 @@ model SiteSettings {
   id String @id @default("singleton")
   siteName String @default("Propspora Leads")
   tagline String @default("Qualified conversations. Real pipeline.")
-  logoUrl String @default("/brand/pl-mark.svg")
+  logoUrl String @default("/brand/logo.webp")
   faviconUrl String @default("/favicon.ico")
   primaryColor String @default("#102A4C")
   accentColor String @default("#0EA5A4")

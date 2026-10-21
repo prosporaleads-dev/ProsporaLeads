@@ -43,7 +43,7 @@ CREATE TABLE "SiteSettings" (
     "id" TEXT NOT NULL DEFAULT 'singleton',
     "siteName" TEXT NOT NULL DEFAULT 'Propspora Leads',
     "tagline" TEXT NOT NULL DEFAULT 'Qualified conversations. Real pipeline.',
-    "logoUrl" TEXT NOT NULL DEFAULT '/brand/pl-mark.svg',
+    "logoUrl" TEXT NOT NULL DEFAULT '/brand/logo.webp',
     "faviconUrl" TEXT NOT NULL DEFAULT '/favicon.ico',
     "primaryColor" TEXT NOT NULL DEFAULT '#102A4C',
     "accentColor" TEXT NOT NULL DEFAULT '#0EA5A4',

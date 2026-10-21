@@ -26,6 +26,6 @@ export const defaultFaqs = [
   { question: "Can you work with our CRM and sales team?", answer: "We can deliver leads in a CRM-ready format and coordinate meeting handovers with your sales team." }
 ];
 export async function getSiteSettings() {
-  const defaults = { siteName: "Propspora Leads", tagline: "Qualified conversations. Real pipeline.", logoUrl: "/brand/pl-mark.svg", primaryColor: "#102A4C", accentColor: "#0EA5A4", goldColor: "#C7A45A", contactEmail: "hello@example.com", contactPhone: "", officeAddress: "", footerText: "Research-led outreach for ambitious B2B teams.", defaultSeoTitle: "Propspora Leads | B2B Lead Generation", defaultSeoDescription: "Research-led B2B lead generation, appointment setting and personalised outreach." };
+  const defaults = { siteName: "Propspora Leads", tagline: "Qualified conversations. Real pipeline.", logoUrl: "/brand/logo.webp", primaryColor: "#102A4C", accentColor: "#0EA5A4", goldColor: "#C7A45A", contactEmail: "hello@example.com", contactPhone: "", officeAddress: "", footerText: "Research-led outreach for ambitious B2B teams.", defaultSeoTitle: "Propspora Leads | B2B Lead Generation", defaultSeoDescription: "Research-led B2B lead generation, appointment setting and personalised outreach." };
   try { return { ...defaults, ...(await prisma.siteSettings.findUnique({ where: { id: "singleton" } }) ?? {}) }; } catch { return defaults; }
 }
