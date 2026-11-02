@@ -30,10 +30,10 @@ A full-stack, SEO-aware B2B lead generation website for Propspora Leads. Built w
 2. Copy environment variables and edit them:
 
    ```bash
-   cp .env.example .env
+   cp -n .env.example .env
    ```
 
-   Set a reachable PostgreSQL database, `APP_URL`, and a cryptographically random `JWT_SECRET` of at least 32 characters. Never commit `.env`.
+   The example is configured for a local PostgreSQL database. Set `DATABASE_URL` to your local database, keep `APP_URL` at `http://localhost:3000`, and generate `JWT_SECRET` with `openssl rand -base64 32`. Set `ADMIN_NAME`, `ADMIN_EMAIL`, and a unique `ADMIN_PASSWORD` of at least 14 characters before creating the first admin. Never commit `.env`.
 
 3. Generate the Prisma client and create the schema:
 
@@ -64,6 +64,10 @@ A full-stack, SEO-aware B2B lead generation website for Propspora Leads. Built w
 
    Public site: http://localhost:3000  
    Admin sign-in: http://localhost:3000/admin/login
+
+## Production environment
+
+Use `.env.production.example` as a checklist, not as a file to deploy. Configure the variables in your hosting provider with a production-only PostgreSQL database, the public HTTPS `APP_URL`, and a newly generated `JWT_SECRET`; do not reuse development credentials or commit production secrets. `JWT_ISSUER` and `JWT_AUDIENCE` may keep their documented defaults. Run `pnpm db:deploy` against the production database to apply migrations. Set the `ADMIN_*` values only for the initial `pnpm admin:create` run, then remove them from the hosting environment.
 
 ## Admin access and content management
 
