@@ -3,6 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
 import { getSiteSettings } from "@/lib/content";
+import { getAppUrl } from "@/lib/site-url";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -19,9 +20,8 @@ export const viewport: Viewport = {
 };
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
-  const url = process.env.APP_URL ?? "http://localhost:3000";
   return {
-    metadataBase: new URL(url),
+    metadataBase: getAppUrl(),
     title: {
       default: settings.defaultSeoTitle,
       template: `%s | ${settings.siteName}`,

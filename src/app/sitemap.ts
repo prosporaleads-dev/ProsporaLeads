@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
+import { getAppUrl } from "@/lib/site-url";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.APP_URL ?? "http://localhost:3000";
+  const base = getAppUrl().origin;
   const paths = [
     "",
     "/about",

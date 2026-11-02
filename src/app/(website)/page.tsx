@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getSiteSettings } from "@/lib/content";
+import { getAppUrl } from "@/lib/site-url";
 import {
   Hero,
   CTA,
@@ -27,7 +28,7 @@ export default async function HomePage() {
     "@type": "Organization",
     name: settings.siteName,
     description: settings.defaultSeoDescription,
-    url: process.env.APP_URL ?? "http://localhost:3000",
+    url: getAppUrl().origin,
     email: settings.contactEmail,
     areaServed: defaultMarkets.map((m) => m.name),
   };
