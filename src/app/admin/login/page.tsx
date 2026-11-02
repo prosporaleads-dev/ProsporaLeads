@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default async function AdminLoginPage() {
   if (await getSession()) redirect("/admin");
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#F4F7FA] px-5 py-12">
+    <main className="flex min-h-screen items-center justify-center bg-surface px-5 py-12">
       <div className="grid w-full max-w-5xl overflow-hidden rounded-3xl bg-white shadow-2xl shadow-slate-900/10 md:grid-cols-2">
-        <div className="hidden flex-col justify-between bg-[#102A4C] p-12 text-white md:flex">
+        <div className="hidden flex-col justify-between bg-brand-navy p-12 text-white md:flex">
           <div>
             <div className="text-xs font-bold uppercase tracking-[.25em] text-teal-300">
               PROSPORA LEADS
@@ -30,7 +30,7 @@ export default async function AdminLoginPage() {
           <p className="text-xs font-bold uppercase tracking-[.2em] text-teal-700">
             Admin portal
           </p>
-          <h2 className="mt-3 text-3xl font-bold text-[#102A4C]">
+          <h2 className="mt-3 text-3xl font-bold text-brand-navy">
             Welcome back
           </h2>
           <p className="mt-2 text-sm text-slate-500">

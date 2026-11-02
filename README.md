@@ -5,7 +5,7 @@ A full-stack, SEO-aware B2B lead generation website for Propspora Leads. Built w
 ## Included
 
 - Public pages: Home, About, Services, Industries, Markets, How We Work, FAQ, Contact, Privacy Policy and Terms of Service.
-- Responsive visual system with navy, teal and gold brand colours and reduced-motion support.
+- Responsive visual system using the logo's navy and teal palette with reduced-motion support.
 - Contact form with server-side Zod validation, a honeypot field, consent requirement and rate limiting.
 - PostgreSQL/Prisma schema for admin users, editable pages/sections, site settings, services, FAQs, markets, industries, media and enquiries.
 - Admin sign-in using JWT in an HttpOnly, SameSite cookie; bcrypt password hashing; protected admin APIs; role-aware settings update.

@@ -27,12 +27,12 @@ export default async function AdminDashboard() {
             className="rounded-2xl border border-slate-200 bg-white p-6"
           >
             <p className="text-sm text-slate-500">{c.label}</p>
-            <p className="mt-3 text-3xl font-bold text-[#102A4C]">{c.value}</p>
+            <p className="mt-3 text-3xl font-bold text-brand-navy">{c.value}</p>
           </div>
         ))}
       </div>
       <div className="rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 className="text-lg font-bold text-[#102A4C]">Before you launch</h2>
+        <h2 className="text-lg font-bold text-brand-navy">Before you launch</h2>
         <ul className="mt-4 list-inside list-disc space-y-2 text-sm leading-6 text-slate-600">
           <li>
             Configure a production PostgreSQL database and strong JWT secret.

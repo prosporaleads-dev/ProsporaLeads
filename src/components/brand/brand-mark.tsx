@@ -9,7 +9,9 @@ export function BrandMark({ compact = false }: { compact?: boolean }) {
       height={793}
       priority={!compact}
       sizes={compact ? "160px" : "220px"}
-      className={compact ? "h-auto w-40" : "h-auto w-[220px] max-h-14 object-contain"}
+      className={
+        compact ? "h-auto w-40" : "h-auto w-[220px] max-h-14 object-contain"
+      }
     />
   );
 }

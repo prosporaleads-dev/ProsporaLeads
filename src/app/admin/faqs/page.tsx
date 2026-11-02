@@ -14,8 +14,10 @@ export default async function AdminFaqsPage() {
   return (
     <div>
       <div className="mb-7">
-        <h1 className="text-2xl font-bold text-[#102A4C]">FAQs</h1>
-        <p className="mt-2 text-sm text-slate-500">
+        <h1 className="font-heading text-2xl font-bold text-foreground">
+          FAQs
+        </h1>
+        <p className="mt-2 text-sm text-muted">
           Review question and answer content.
         </p>
       </div>
@@ -24,26 +26,26 @@ export default async function AdminFaqsPage() {
           faqs.map((f) => (
             <details
               key={f.id}
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="rounded-[1.75rem] border border-border bg-white p-5 shadow-soft"
             >
-              <summary className="cursor-pointer font-bold text-[#102A4C]">
+              <summary className="cursor-pointer font-bold text-foreground">
                 {f.question}
-                <span className="float-right text-xs font-normal text-slate-400">
+                <span className="float-right text-xs font-normal text-muted">
                   {f.isPublished ? "Published" : "Hidden"}
                 </span>
               </summary>
-              <p className="mt-4 text-sm leading-6 text-slate-600">
+              <p className="mt-4 text-sm leading-7 text-foreground/70">
                 {f.answer}
               </p>
             </details>
           ))
         ) : (
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-500">
+          <div className="rounded-[1.75rem] border border-border bg-white p-6 text-sm text-muted">
             No FAQs seeded yet.
           </div>
         )}
       </div>
-      <p className="mt-4 text-xs text-slate-500">
+      <p className="mt-4 text-xs text-muted">
         GET and POST endpoints are provided at /api/admin/faqs. Connect your
         preferred editor to manage content.
       </p>

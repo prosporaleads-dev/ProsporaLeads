@@ -1,4 +1,58 @@
 import Link from "next/link";
-import { ArrowUpRight, Target, CalendarCheck, Mail, Network, Map, Database, type LucideIcon } from "lucide-react";
-const icons: Record<string, LucideIcon> = { target: Target, "calendar-check": CalendarCheck, mail: Mail, network: Network, map: Map, database: Database };
-export function ServiceCard({ service, index = 0 }: { service: { slug: string; title: string; shortDescription: string; icon?: string }; index?: number }) { const Icon = icons[service.icon ?? "target"] ?? Target; return <article className="group rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl hover:shadow-slate-200/60"><div className="mb-7 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700"><Icon size={22}/></div><h3 className="font-heading text-xl font-bold text-[#102A4C]">{service.title}</h3><p className="mt-3 min-h-[72px] text-sm leading-6 text-slate-600">{service.shortDescription}</p><Link href={`/services#${service.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-teal-700">Explore service <ArrowUpRight size={15} className="transition group-hover:translate-x-1"/></Link></article>; }
+import {
+  ArrowUpRight,
+  Target,
+  CalendarCheck,
+  Mail,
+  Network,
+  Map,
+  Database,
+  type LucideIcon,
+} from "lucide-react";
+
+const icons: Record<string, LucideIcon> = {
+  target: Target,
+  "calendar-check": CalendarCheck,
+  mail: Mail,
+  network: Network,
+  map: Map,
+  database: Database,
+};
+
+export function ServiceCard({
+  service,
+}: {
+  service: {
+    slug: string;
+    title: string;
+    shortDescription: string;
+    icon?: string;
+  };
+}) {
+  const Icon = icons[service.icon ?? "target"] ?? Target;
+  return (
+    <article className="group relative rounded-[1.75rem] border border-border bg-white p-7 transition-all hover:-translate-y-1.5 hover:border-brand-teal/50 hover:shadow-luxury">
+      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal">
+        <Icon size={20} />
+      </div>
+      <h3 className="font-heading text-xl font-bold text-brand-ink">
+        {service.title}
+      </h3>
+      <p className="mt-4 min-h-[72px] text-sm leading-7 text-brand-ink/75">
+        {service.shortDescription}
+      </p>
+      <div className=" border-border-soft">
+        <Link
+          href={`/services#${service.slug}`}
+          className="inline-flex items-center gap-2 text-sm font-bold text-brand-teal"
+        >
+          Explore service{" "}
+          <ArrowUpRight
+            size={15}
+            className="transition group-hover:translate-x-1"
+          />
+        </Link>
+      </div>
+    </article>
+  );
+}
