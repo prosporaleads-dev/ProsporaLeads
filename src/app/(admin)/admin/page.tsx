@@ -31,26 +31,6 @@ export default async function AdminDashboard() {
           </div>
         ))}
       </div>
-      <div className="rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 className="text-lg font-bold text-brand-navy">Before you launch</h2>
-        <ul className="mt-4 list-inside list-disc space-y-2 text-sm leading-6 text-slate-600">
-          <li>
-            Configure a production PostgreSQL database and strong JWT secret.
-          </li>
-          <li>
-            Update contact details and default SEO metadata in Site settings.
-          </li>
-          <li>
-            Review Privacy Policy, Terms of Service and applicable outreach
-            compliance with legal counsel.
-          </li>
-          <li>Use real, verified testimonials and performance metrics only.</li>
-          <li>
-            Configure transactional email and shared rate limiting before
-            production traffic.
-          </li>
-        </ul>
-      </div>
     </div>
   );
 }

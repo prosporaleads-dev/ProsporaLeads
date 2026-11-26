@@ -6,7 +6,6 @@ export { HowItWorks } from "./HowItWorks";
 export { Industries } from "./Industries";
 export { Markets } from "./Markets";
 export { FAQ } from "./FAQ";
-export { Testimonials } from "./Testimonials";
 export { useHomeData } from "./hooks/useHomeData";
 export {
   defaultServices,

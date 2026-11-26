@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
         website: parsed.data.website || null,
         targetRegions: parsed.data.targetRegions,
         serviceInterest: parsed.data.serviceInterest || null,
-        goals: parsed.data.goals,
+        goals: parsed.data.goals ?? "",
         consent: parsed.data.consent,
       },
     });

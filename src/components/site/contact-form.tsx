@@ -157,7 +157,7 @@ export function ContactForm() {
           htmlFor="consent"
           className="text-sm text-foreground/60 leading-6"
         >
-          I agree to Propspora Leads storing my details to respond to this
+          I agree to Prospora Leads storing my details to respond to this
           enquiry.
         </label>
       </div>

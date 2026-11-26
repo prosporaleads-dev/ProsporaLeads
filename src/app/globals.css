@@ -3,104 +3,57 @@
 @theme inline {
   --font-sans: var(--font-inter);
   --font-heading: var(--font-manrope);
-
   --color-background: #ffffff;
-  --color-foreground: #0e1b2e;
-  --color-border: #dce4ec;
-  --color-muted-foreground: #526174;
-  --color-brand-ink: #0e1b2e;
-  --color-brand-muted: #526174;
-  --color-brand-surface: #f5f7fa;
-  --color-brand-surface-strong: #eaeef3;
-  --color-brand-teal-hover: #0d9691;
-
-  --color-brand-navy: #102a4c;
-  --color-brand-navy-dark: #0b1a33;
-  --color-brand-teal: #0ea5a4;
-  --color-brand-teal-light: #36d7cb;
-  --color-brand-teal-dark: #087d8a;
+  --color-foreground: #101c34;
+  --color-border: #e5eaf1;
+  --color-muted-foreground: #64748b;
+  --color-brand-ink: #071632;
+  --color-brand-muted: #64748b;
+  --color-brand-surface: #f5f8fc;
+  --color-brand-surface-strong: #eaf0f7;
+  --color-brand-teal-hover: #008e98;
+  --color-brand-navy: #010f33;
+  --color-brand-navy-dark: #06152f;
+  --color-brand-teal: #0797a2;
+  --color-brand-teal-light: #35d1c6;
+  --color-brand-teal-dark: #087985;
 }
 
-:root {
-  color-scheme: light;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
-
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family:
-    var(--font-sans),
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.6;
+  line-height: 1.65;
 }
-
-::selection {
-  background: var(--color-brand-teal-light);
-  color: var(--color-brand-navy);
-}
-
-.font-heading {
-  font-family:
-    var(--font-heading),
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.container-shell {
-  width: min(100% - 2.5rem, 1240px);
-  margin-inline: auto;
-}
-
+::selection { background: #b8f1ec; color: #010f33; }
+.font-heading { font-family: var(--font-heading), system-ui, sans-serif; }
+.text-balance { text-wrap: balance; }
+.container-shell { width: min(100% - 2.5rem, 1240px); margin-inline: auto; }
 .hero-glow {
-  background-image: radial-gradient(
-    circle at 50% 50%,
-    color-mix(in srgb, var(--color-brand-teal) 8%, transparent),
-    transparent 60%
-  );
-  mask-image: radial-gradient(circle at 70% 30%, black 30%, transparent 70%);
-  mask-repeat: no-repeat;
+  background:
+    radial-gradient(ellipse at 78% 20%, rgba(7,151,162,.18), transparent 38%),
+    radial-gradient(ellipse at 15% 85%, rgba(53,209,198,.10), transparent 34%);
 }
-
-@media (min-width: 768px) {
-  .container-shell {
-    width: min(100% - 4rem, 1240px);
-  }
+.gradient-text {
+  background: linear-gradient(105deg, #0797a2 0%, #31c9bd 55%, #087985 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-
+.shadow-luxury { box-shadow: 0 28px 80px rgba(1,15,51,.12), 0 4px 16px rgba(1,15,51,.05); }
+.shadow-soft { box-shadow: 0 12px 36px rgba(1,15,51,.07); }
+.surface-glass { background: rgba(255,255,255,.78); backdrop-filter: blur(18px); }
+.grid-pattern {
+  background-image: linear-gradient(rgba(1,15,51,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(1,15,51,.045) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+@media (min-width: 768px) { .container-shell { width: min(100% - 4rem, 1240px); } }
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

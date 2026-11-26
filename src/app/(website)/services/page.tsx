@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { getServices } from "@/lib/content";
+import { getAppUrl } from "@/lib/site-url";
+import { buildBreadcrumbJsonLd, safeJsonLd } from "@/lib/seo";
 import { SectionHeading } from "@/components/site/section-heading";
 import { ServiceCard } from "@/components/site/service-card";
 import { Reveal } from "@/components/site/reveal";
@@ -9,14 +11,48 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "B2B Lead Generation Services",
   description:
-    "Explore B2B lead generation, appointment setting, email and LinkedIn outreach, market research and data verification.",
+    "Explore B2B lead generation, appointment setting, email and LinkedIn outreach, market research, and data verification services.",
   alternates: { canonical: "/services" },
 };
 
 export default async function ServicesPage() {
   const services = await getServices();
+  const origin = getAppUrl().origin;
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Prospora Leads B2B Services",
+      url: `${origin}/services`,
+      itemListElement: services.map((service, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Service",
+          name: service.title,
+          description: service.description || service.shortDescription,
+          url: `${origin}/services#${service.slug}`,
+          provider: {
+            "@type": "Organization",
+            name: "Prospora Leads",
+            url: origin,
+          },
+        },
+      })),
+    },
+    buildBreadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Services", path: "/services" },
+    ]),
+  ];
+
   return (
     <div className="container-shell py-24 sm:py-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <SectionHeading
         eyebrow="Our services"
         title="Outbound services designed around your ideal customer."

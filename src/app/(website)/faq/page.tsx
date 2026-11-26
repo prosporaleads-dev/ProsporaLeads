@@ -1,18 +1,42 @@
 import type { Metadata } from "next";
 import { defaultFaqs } from "@/lib/content";
+import { buildBreadcrumbJsonLd, safeJsonLd } from "@/lib/seo";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers about Propspora Leads services, qualification, regions, outreach and campaign reporting.",
+    "Answers about Prospora Leads services, qualification, regions, outreach, and campaign reporting.",
   alternates: { canonical: "/faq" },
 };
 
 export default function FAQPage() {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: defaultFaqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: f.answer,
+        },
+      })),
+    },
+    buildBreadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "FAQ", path: "/faq" },
+    ]),
+  ];
+
   return (
     <div className="container-shell py-24 sm:py-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <SectionHeading
         eyebrow="FAQs"
         title="Straight answers to common questions."

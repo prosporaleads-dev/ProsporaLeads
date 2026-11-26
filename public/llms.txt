@@ -1,0 +1,24 @@
+# Prospora Leads
+
+> Qualified conversations. Real pipeline. Prospora Leads is a B2B lead generation, appointment setting, and research-led outbound sales agency helping ambitious teams reach verified decision-makers across the USA, Canada, the Middle East, and Australia.
+
+## Core Information
+- **Company**: Prospora Leads
+- **Contact Email**: info@prosporaleads.com
+- **Target Markets**: United States (USA), Canada, Middle East, Australia
+- **Core Services**: B2B Lead Generation, Appointment Setting, Email Outreach, LinkedIn Outreach, Market & Account Research, Data Verification & Enrichment
+- **Full Documentation for AI Agents**: [llms-full.txt](/llms-full.txt)
+
+## Key Pages
+- [Home](/): Overview of Prospora Leads, our methodology, services, industries, markets, and FAQs.
+- [Services](/services): Detailed breakdown of our six B2B outbound and research services.
+- [How We Work](/how-we-work): Our 6-step process from discovery and ICP definition to verification, outreach, and reporting.
+- [Markets](/markets): Regional outreach approach and compliance considerations for the USA, Canada, Middle East, and Australia.
+- [Industries](/industries): B2B verticals we serve, including SaaS, IT, staffing, fintech, real estate, manufacturing, logistics, healthcare, agencies, and education.
+- [About Us](/about): Mission, vision, values, and transparent reporting commitment.
+- [FAQ](/faq): Straight answers on lead qualification, regions, CRM handovers, and expectations.
+- [Contact](/contact): Book a free strategy call or email info@prosporaleads.com.
+
+## Legal
+- [Privacy Policy](/privacy-policy): How we collect, protect, and respect personal and B2B contact data.
+- [Terms of Service](/terms-of-service): Website use and B2B service engagement terms.

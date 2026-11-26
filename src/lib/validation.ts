@@ -14,13 +14,13 @@ export const inquirySchema = z.object({
     .min(1)
     .max(5),
   serviceInterest: z.string().trim().max(120).optional().or(z.literal("")),
-  goals: z.string().trim().min(10).max(5000),
+  goals: z.string().trim().min(10).max(5000).optional().or(z.literal("")),
   consent: z.literal(true),
   websiteConfirm: z.string().max(0).optional().default(""),
 });
 export const pageUpdateSchema = z.object({
   title: z.string().trim().min(1).max(160),
-  description: z.string().max(5000),
+  description: z.string().max(5000).optional().or(z.literal("")),
   status: z.enum(["DRAFT", "PUBLISHED"]),
   seoTitle: z.string().max(160),
   seoDescription: z.string().max(320),
