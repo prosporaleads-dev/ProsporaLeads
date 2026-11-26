@@ -2,6 +2,7 @@
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+
 const regions = [
   "USA",
   "Canada",
@@ -9,16 +10,23 @@ const regions = [
   "Australia",
   "Multiple",
 ] as const;
+
 export function ContactForm() {
   const [busy, setBusy] = useState(false);
   const [regionsSelected, setRegionsSelected] = useState<string[]>([]);
+
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (regionsSelected.length === 0) {
+      toast.error("Please select at least one target region.");
+      return;
+    }
+
     setBusy(true);
     const form = e.currentTarget;
     const data = new FormData(form);
     const payload = Object.fromEntries(data.entries());
-    payload.targetRegions = regionsSelected as unknown as FormDataEntryValue;
+
     try {
       const response = await fetch("/api/inquiries", {
         method: "POST",
@@ -46,12 +54,14 @@ export function ContactForm() {
       setBusy(false);
     }
   }
+
   const field =
     "mt-2 w-full rounded-xl border border-border bg-white px-4 py-3.5 text-sm text-foreground outline-none transition placeholder:text-foreground/40 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal";
+
   return (
     <form
       onSubmit={submit}
-      className="rounded-[2rem] border border-border bg-white p-7 shadow-soft sm:p-10"
+      className="rounded-[2rem] border border-border bg-white p-6 shadow-soft sm:p-10"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="text-sm font-semibold text-foreground/90">
@@ -109,11 +119,12 @@ export function ContactForm() {
           />
         </label>
       </div>
+
       <fieldset className="mt-7">
         <legend className="text-sm font-semibold text-foreground/90">
           Target region *
         </legend>
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap gap-2">
           {regions.map((r) => (
             <button
               type="button"
@@ -127,13 +138,18 @@ export function ContactForm() {
                       : [...old.filter((x) => x !== "Multiple"), r],
                 )
               }
-              className={`rounded-full border px-4 py-2 text-sm transition ${regionsSelected.includes(r) ? "border-brand-teal bg-brand-teal/10 text-brand-teal-dark" : "border-border text-foreground/70 hover:border-brand-teal hover:text-brand-teal"}`}
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                regionsSelected.includes(r)
+                  ? "border-brand-teal bg-brand-teal/10 text-brand-teal-dark"
+                  : "border-border text-foreground/70 hover:border-brand-teal hover:text-brand-teal"
+              }`}
             >
               {r}
             </button>
           ))}
         </div>
       </fieldset>
+
       <label className="mt-7 block text-sm font-semibold text-foreground/90">
         Service of interest
         <select className={field} name="serviceInterest" defaultValue="">
@@ -146,26 +162,43 @@ export function ContactForm() {
           <option>Data Verification &amp; Enrichment</option>
         </select>
       </label>
+
+      <label className="mt-7 block text-sm font-semibold text-foreground/90">
+        Tell us about your goals *
+        <textarea
+          className={field}
+          name="goals"
+          rows={4}
+          minLength={10}
+          maxLength={5000}
+          required
+          placeholder="Who are you looking to reach, and what does a successful campaign look like for your team?"
+        />
+      </label>
+
       <div className="mt-7 flex items-start gap-3">
         <input
           id="consent"
           name="consent"
           type="checkbox"
-          className="mt-1 rounded border-border text-brand-teal focus:ring-brand-teal"
+          required
+          className="mt-1 h-4 w-4 rounded border-border text-brand-teal focus:ring-brand-teal"
         />
         <label
           htmlFor="consent"
-          className="text-sm text-foreground/60 leading-6"
+          className="text-sm leading-6 text-foreground/65"
         >
           I agree to Prospora Leads storing my details to respond to this
           enquiry.
         </label>
       </div>
+
       <Button
         type="submit"
         size="lg"
         variant="brand-teal"
-        className="mt-8 w-full"
+        disabled={busy}
+        className="mt-8 w-full text-white"
       >
         {busy ? "Sending…" : "Request a strategy call"}
       </Button>
