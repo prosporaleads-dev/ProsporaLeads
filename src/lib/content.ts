@@ -160,7 +160,7 @@ export const defaultIndustries = [
 ];
 export const defaultFaqs = [
   {
-    question: "What does Propspora Leads do?",
+    question: "What does Prospora Leads do?",
     answer:
       "We research target companies, identify and verify decision-makers, and run personalised outreach designed to create qualified conversations and booked meetings.",
   },
@@ -187,24 +187,29 @@ export const defaultFaqs = [
 ];
 export async function getSiteSettings() {
   const defaults = {
-    siteName: "Propspora Leads",
+    siteName: "Prospora Leads",
     tagline: "Qualified conversations. Real pipeline.",
     logoUrl: "/brand/logo.webp",
-    contactEmail: "hello@example.com",
+    contactEmail: "info@prosporaleads.com",
     contactPhone: "",
     officeAddress: "",
     footerText: "Research-led outreach for ambitious B2B teams.",
-    defaultSeoTitle: "Propspora Leads | B2B Lead Generation",
+    defaultSeoTitle: "Prospora Leads | B2B Lead Generation & Appointment Setting",
     defaultSeoDescription:
-      "Research-led B2B lead generation, appointment setting and personalised outreach.",
+      "Research-led B2B lead generation, appointment setting, and personalised outreach for ambitious teams across the USA, Canada, Middle East, and Australia.",
   };
   try {
-    return {
+    const record = await prisma.siteSettings.findUnique({
+      where: { id: "singleton" },
+    });
+    const merged = {
       ...defaults,
-      ...((await prisma.siteSettings.findUnique({
-        where: { id: "singleton" },
-      })) ?? {}),
+      ...(record ?? {}),
     };
+    if (!merged.contactEmail || merged.contactEmail === "hello@example.com") {
+      merged.contactEmail = "info@prosporaleads.com";
+    }
+    return merged;
   } catch {
     return defaults;
   }

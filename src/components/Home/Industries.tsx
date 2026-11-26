@@ -6,7 +6,7 @@ import { Reveal } from "@/components/site/reveal";
 export function Industries() {
   return (
     <section className="border-y border-border bg-brand-surface">
-      <div className="container-shell py-24 sm:py-32">
+      <div className="container-shell py-20 sm:py-28">
         <div className="mb-12 max-w-3xl text-center mx-auto">
           <p className="mb-3 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">
             <span className="h-1 w-12 rounded-full bg-brand-teal" /> Industries
@@ -22,7 +22,7 @@ export function Industries() {
           {defaultIndustries.map((industry, i) => (
             <div
               key={industry}
-              className="rounded-xl border border-border bg-white p-6 text-center transition hover:border-brand-teal/50 hover:shadow-soft"
+              className="rounded-2xl border border-slate-200/80 bg-white p-6 text-center transition duration-300 hover:-translate-y-1 hover:border-brand-teal/50 hover:shadow-soft"
             >
               <Reveal delay={i * 0.03}>
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-teal/10 text-xs font-bold text-brand-teal">

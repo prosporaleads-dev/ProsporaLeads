@@ -1,81 +1,17 @@
 "use client";
-
 import { Reveal } from "@/components/site/reveal";
+import { SearchCheck, MessagesSquare, Workflow, BarChart3 } from "lucide-react";
 
-const teamMembers = [
-  {
-    name: "Alex Morgan",
-    role: "Founder & CEO",
-    bio: "Leads strategy and client partnerships with a focus on measurable pipeline growth.",
-  },
-  {
-    name: "Sarah Chen",
-    role: "Head of Research",
-    bio: "Oversees ICP definition, target-account mapping and decision-maker identification.",
-  },
-  {
-    name: "James Okoro",
-    role: "Head of Outreach",
-    bio: "Manages multi-channel campaigns, messaging and meeting bookings.",
-  },
+const principles = [
+  { icon: SearchCheck, title: "Research before outreach", body: "We start with your ideal customer profile, buying context and the decision-makers who matter." },
+  { icon: MessagesSquare, title: "Relevance over volume", body: "Personalised messaging is shaped around your offer, audience and the conversations you want to create." },
+  { icon: Workflow, title: "A connected process", body: "Research, outreach, qualification and handover work together as one coordinated programme." },
+  { icon: BarChart3, title: "Visibility at every step", body: "Clear activity updates and practical reporting help your team understand what is working." },
 ];
 
 export function Team() {
-  return (
-    <section className="border-t border-border bg-brand-surface py-24 sm:py-32">
-      <div className="container-shell">
-        <div className="mb-12 max-w-3xl text-center mx-auto">
-          <p className="mb-3 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">
-            <span className="h-1 w-12 rounded-full bg-brand-teal" /> Meet the
-            team
-          </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl">
-            The people behind your pipeline.
-          </h2>
-          <p className="mt-5 text-base leading-8 text-brand-ink/85 sm:text-lg">
-            Our team combines research rigor with outreach expertise to deliver
-            conversations that convert.
-          </p>
-        </div>
-        <div className="grid gap-8 md:grid-cols-3">
-          {teamMembers.map((member, i) => (
-            <div
-              key={member.name}
-              className="rounded-[1.75rem] border border-border bg-white p-8 shadow-soft"
-            >
-              <Reveal delay={i * 0.05}>
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-brand-teal/10 font-heading text-2xl font-bold text-brand-teal">
-                  {member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </div>
-                <h3 className="font-heading text-lg font-bold text-brand-ink">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-sm font-medium text-brand-teal">
-                  {member.role}
-                </p>
-                <p className="mt-4 text-sm leading-7 text-brand-ink/70">
-                  {member.bio}
-                </p>
-                <div className="mt-6 pt-4 border-t border-border">
-                  <span className="inline-flex items-center gap-1 rounded-full border border-brand-teal/30 px-3 py-1 text-xs font-bold text-brand-teal">
-                    Coming Soon
-                  </span>
-                </div>
-              </Reveal>
-            </div>
-          ))}
-        </div>
-        <div className="mt-16 flex justify-center">
-          <Reveal>
-            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Full team profiles coming soon.
-            </span>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
+  return <section className="border-y border-slate-100 bg-[#f6f9fc] py-20 sm:py-28"><div className="container-shell">
+    <div className="mx-auto mb-14 max-w-3xl text-center"><p className="mb-3 text-[11px] font-extrabold uppercase tracking-[.22em] text-[#0797a2]">The Prospora difference</p><h2 className="font-heading text-3xl font-extrabold tracking-tight text-[#010f33] sm:text-4xl">A thoughtful extension of your sales team.</h2><p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">Great pipeline starts with a clear plan, careful research and consistent execution. We bring the pieces together so your team can focus on closing.</p></div>
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{principles.map((item,i)=>{const Icon=item.icon;return <Reveal key={item.title} delay={i*.05}><article className="h-full rounded-[1.5rem] border border-slate-200/80 bg-white p-7 shadow-[0_8px_26px_rgba(1,15,51,.035)] transition hover:-translate-y-1 hover:shadow-soft"><div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#e1f8f5] to-[#edf2ff] text-[#087985]"><Icon size={22}/></div><h3 className="font-heading text-lg font-extrabold text-[#071632]">{item.title}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p></article></Reveal>})}</div>
+  </div></section>;
 }

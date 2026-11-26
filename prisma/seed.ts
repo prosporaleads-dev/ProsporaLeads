@@ -107,7 +107,7 @@ const services = [
 ];
 const faqs = [
   {
-    question: "What does Propspora Leads do?",
+    question: "What does Prospora Leads do?",
     answer:
       "We research target companies, identify and verify decision-makers, and run personalised outreach designed to create qualified conversations and booked meetings.",
     sortOrder: 1,
@@ -142,15 +142,15 @@ const pages = [
     slug: "home",
     title: "Home",
     description: "Meet the right buyers. Build a pipeline you can trust.",
-    seoTitle: "Propspora Leads | B2B Lead Generation Company",
+    seoTitle: "Prospora Leads | B2B Lead Generation Company",
     seoDescription:
-      "Propspora Leads delivers researched, verified B2B leads and booked meetings for companies in the USA, Canada, Middle East and Australia.",
+      "Prospora Leads delivers researched, verified B2B leads and booked meetings for companies in the USA, Canada, Middle East and Australia.",
   },
   {
     slug: "about",
     title: "About Us",
     description: "We help good companies get heard by the right people.",
-    seoTitle: "About Propspora Leads",
+    seoTitle: "About Prospora Leads",
     seoDescription:
       "Learn who we are, what we believe and how we help B2B companies build quality pipeline through research-led outreach.",
   },
@@ -158,7 +158,7 @@ const pages = [
     slug: "services",
     title: "Services",
     description: "Outbound services designed around your ideal customer.",
-    seoTitle: "B2B Lead Generation Services | Propspora Leads",
+    seoTitle: "B2B Lead Generation Services | Prospora Leads",
     seoDescription:
       "Lead generation, appointment setting, email and LinkedIn outreach, market research and data verification for B2B growth teams.",
   },
@@ -168,21 +168,21 @@ const pages = [
     description: "Local awareness. Global reach.",
     seoTitle: "B2B Leads USA, Canada, Middle East & Australia",
     seoDescription:
-      "See how Propspora Leads tailors B2B outreach to the USA, Canada, the Middle East and Australia.",
+      "See how Prospora Leads tailors B2B outreach to the USA, Canada, the Middle East and Australia.",
   },
   {
     slug: "industries",
     title: "Industries",
     description: "We understand how different industries buy.",
-    seoTitle: "Industries We Serve | Propspora Leads",
+    seoTitle: "Industries We Serve | Prospora Leads",
     seoDescription:
-      "Propspora Leads supports SaaS, IT, staffing, real estate, finance, manufacturing and more with targeted B2B lead generation.",
+      "Prospora Leads supports SaaS, IT, staffing, real estate, finance, manufacturing and more with targeted B2B lead generation.",
   },
   {
     slug: "how-we-work",
     title: "How We Work",
     description: "A clear process, from first call to booked meetings.",
-    seoTitle: "Our Lead Generation Process | Propspora Leads",
+    seoTitle: "Our Lead Generation Process | Prospora Leads",
     seoDescription:
       "A clear process from discovery and research to verified outreach and measurable reporting.",
   },
@@ -190,7 +190,7 @@ const pages = [
     slug: "faq",
     title: "FAQ",
     description: "Straight answers to common questions.",
-    seoTitle: "B2B Lead Generation FAQs | Propspora Leads",
+    seoTitle: "B2B Lead Generation FAQs | Prospora Leads",
     seoDescription:
       "Answers about lead qualification, outreach, service regions and campaign reporting.",
   },
@@ -198,16 +198,21 @@ const pages = [
     slug: "contact",
     title: "Contact",
     description: "Let's talk about your pipeline.",
-    seoTitle: "Contact Propspora Leads | Book a Strategy Call",
+    seoTitle: "Contact Prospora Leads | Book a Strategy Call",
     seoDescription:
-      "Book a free strategy call with Propspora Leads and tell us who you want to reach.",
+      "Book a free strategy call with Prospora Leads and tell us who you want to reach.",
   },
 ];
 async function main() {
   await prisma.siteSettings.upsert({
     where: { id: "singleton" },
-    create: { id: "singleton" },
-    update: {},
+    create: {
+      id: "singleton",
+      contactEmail: "info@prosporaleads.com",
+    },
+    update: {
+      contactEmail: "info@prosporaleads.com",
+    },
   });
   for (const service of services)
     await prisma.service.upsert({

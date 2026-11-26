@@ -1,18 +1,40 @@
 import type { Metadata } from "next";
 import { defaultIndustries } from "@/lib/content";
+import { getAppUrl } from "@/lib/site-url";
+import { buildBreadcrumbJsonLd, safeJsonLd } from "@/lib/seo";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
 
 export const metadata: Metadata = {
   title: "Industries We Serve",
   description:
-    "Research-led B2B lead generation for SaaS, staffing, real estate, finance, manufacturing and professional services.",
+    "Research-led B2B lead generation for SaaS, staffing, real estate, finance, manufacturing, logistics, healthcare, and professional services.",
   alternates: { canonical: "/industries" },
 };
 
 export default function IndustriesPage() {
+  const origin = getAppUrl().origin;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Industries We Serve | Prospora Leads",
+      url: `${origin}/industries`,
+      description:
+        "B2B industries served by Prospora Leads including SaaS, IT, staffing, real estate, fintech, manufacturing, logistics, healthcare, and agencies.",
+    },
+    buildBreadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Industries", path: "/industries" },
+    ]),
+  ];
+
   return (
     <div className="container-shell py-24 sm:py-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <SectionHeading
         eyebrow="Industries"
         title="We understand how different industries buy."

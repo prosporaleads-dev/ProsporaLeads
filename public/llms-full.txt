@@ -1,0 +1,100 @@
+# Prospora Leads — Complete Knowledge Base
+
+> Qualified conversations. Real pipeline. Prospora Leads is a research-led B2B lead generation and appointment setting partner serving growth teams across the United States, Canada, the Middle East, and Australia.
+
+- **Website**: https://prosporaleads.com
+- **Contact Email**: info@prosporaleads.com
+- **Sitemap**: https://prosporaleads.com/sitemap.xml
+
+---
+
+## About Prospora Leads
+Prospora Leads combines careful research, verified contact data, and personalised outreach to help B2B companies identify decision-makers, build focused prospect lists, and start meaningful sales conversations.
+
+- **Mission**: Help B2B companies build a high-quality pipeline through research-led, responsible outreach.
+- **Vision**: Be a lead generation partner growth teams trust for transparent communication and honest reporting.
+- **Values**: Integrity, relevance, accuracy, respect for privacy, and genuine partnership.
+- **Promise**: We tell clients what we see, including when a market or message needs more work. We do not promise blanket guaranteed results; we commit to a rigorous process and transparent reporting.
+
+---
+
+## Services
+
+### 1. B2B Lead Generation (`/services#b2b-lead-generation`)
+Researched, qualified prospects matched to your ideal customer profile. We identify companies that fit your ICP, map decision-makers, verify contact details, and qualify prospects against agreed criteria.
+- **Features**: Ideal customer profile definition, target-account research, decision-maker identification, contact verification, lead qualification.
+- **Best for**: Teams that want a steady supply of well-researched prospects.
+
+### 2. Appointment Setting (`/services#appointment-setting`)
+Qualified meetings placed directly on your sales team's calendar. We engage prospects, manage initial conversations, handle initial objections, and book qualified meetings.
+- **Features**: Outreach and follow-up, initial objection handling, qualification against agreed criteria, calendar booking and confirmations.
+- **Best for**: Sales teams that want more time in conversations and less time prospecting.
+
+### 3. Email Outreach (`/services#email-outreach`)
+Personalised multi-step email sequences built around your offer, audience, and target market.
+- **Features**: Messaging strategy, sequence writing, segmentation, reply management, testing and optimisation.
+- **Best for**: Companies with a clear offer and defined audience.
+
+### 4. LinkedIn Outreach (`/services#linkedin-outreach`)
+Relationship-led social selling for key decision-makers that builds familiarity with target accounts and complements email campaigns.
+- **Features**: Messaging guidance, connection and follow-up sequences, target-account engagement, reporting.
+- **Best for**: Senior-level buyers and longer sales cycles.
+
+### 5. Market & Account Research (`/services#market-account-research`)
+Insight before activity: market maps, ICPs, and target accounts to support market entry and sharper targeting.
+- **Features**: ICP development, account segmentation, decision-maker mapping, competitor snapshots, buying-signal research.
+- **Best for**: Companies entering a new region or refining targeting.
+
+### 6. Data Verification & Enrichment (`/services#data-verification`)
+Clean, current contact and company data your CRM can rely on.
+- **Features**: Contact verification, duplicate cleanup, company and role enrichment, CRM-ready formatting.
+- **Best for**: Teams with existing databases that need attention.
+
+---
+
+## Our 6-Step Process (`/how-we-work`)
+1. **Discovery call**: Review your product, best customers, target regions, and lead qualification criteria.
+2. **Strategy and ideal customer profile**: Define target accounts, key decision-maker roles, messaging angles, and success metrics.
+3. **Research and list building**: Build a focused target-account list and identify relevant decision-makers.
+4. **Verification**: Verify contact accuracy prior to launch to protect sender reputation.
+5. **Outreach and follow-up**: Run personalised email and LinkedIn sequences, manage replies, and follow up politely.
+6. **Reporting and optimisation**: Share transparent updates on activity, replies, and booked meetings, iterating based on data.
+
+---
+
+## Markets We Serve (`/markets`)
+- **United States**: Focused segments, role-specific messaging, and disciplined follow-up. Campaigns consider CAN-SPAM requirements.
+- **Canada**: Relationship-aware outreach attentive to local business expectations and language. Campaigns consider CASL requirements.
+- **Middle East**: Respectful introductions aligned with local working weeks, holidays, and country-specific business culture.
+- **Australia**: Concise, practical messaging adapted to local business hours and time zones. Campaigns consider the Australian Spam Act and Privacy Act.
+
+---
+
+## Industries We Serve (`/industries`)
+- Software, SaaS and IT services
+- Staffing, recruitment and HR services
+- Real estate and property technology
+- Financial services and fintech
+- Manufacturing and industrial
+- Logistics and supply chain
+- Healthcare and life sciences
+- Professional and business services
+- Marketing, advertising and creative agencies
+- Education and training providers
+
+---
+
+## Frequently Asked Questions (`/faq`)
+- **What does Prospora Leads do?** We research target companies, identify and verify decision-makers, and run personalised outreach designed to create qualified conversations and booked meetings.
+- **Which regions do you work in?** We support B2B campaigns targeting the USA, Canada, the Middle East, and Australia.
+- **How do you define a qualified lead?** We agree on qualification criteria at the start—typically industry, company size, role, need, and timing.
+- **Do you guarantee leads or meetings?** We do not make blanket guarantees. Outcomes depend on your offer, market, and sales process. We commit to a rigorous process and transparent reporting.
+- **Can you work with our CRM and sales team?** Yes. We deliver leads in a CRM-ready format and coordinate meeting handovers with your sales team.
+
+---
+
+## Contact
+- **Email**: info@prosporaleads.com
+- **Book a Strategy Call**: /contact
+- **Privacy Policy**: /privacy-policy
+- **Terms of Service**: /terms-of-service
