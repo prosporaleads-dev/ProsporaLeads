@@ -37,7 +37,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-24 sm:py-32">
+    <section className="py-20 sm:py-28">
       <div className="container-shell">
         <div className="mb-12 max-w-3xl text-center mx-auto">
           <p className="mb-3 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">

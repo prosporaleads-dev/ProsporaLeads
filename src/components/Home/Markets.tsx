@@ -5,7 +5,7 @@ import { Reveal } from "@/components/site/reveal";
 
 export function Markets() {
   return (
-    <section className="py-24 sm:py-32">
+    <section className="py-20 sm:py-28">
       <div className="container-shell">
         <div className="mb-12 max-w-3xl text-center mx-auto">
           <p className="mb-3 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">
@@ -23,7 +23,7 @@ export function Markets() {
           {defaultMarkets.map((market, i) => (
             <article
               key={market.slug}
-              className="rounded-[1.75rem] border border-border bg-white p-8 shadow-soft transition hover:border-brand-teal/60"
+              className="rounded-[1.65rem] border border-slate-200/80 bg-white p-8 shadow-[0_8px_30px_rgba(1,15,51,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#0797a2]/35 hover:shadow-luxury"
             >
               <Reveal delay={i * 0.05}>
                 <div className="flex items-center gap-2 mb-5">

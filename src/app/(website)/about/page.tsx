@@ -1,21 +1,43 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
+import { getAppUrl } from "@/lib/site-url";
+import { buildBreadcrumbJsonLd, safeJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About Propspora Leads",
+  title: "About Prospora Leads",
   description:
-    "Learn about Propspora Leads and our research-led, ethical approach to B2B pipeline development.",
+    "Learn about Prospora Leads and our research-led, ethical approach to B2B pipeline development.",
   alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
+  const origin = getAppUrl().origin;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      name: "About Prospora Leads",
+      url: `${origin}/about`,
+      description:
+        "Prospora Leads combines careful research, verified data, and thoughtful outreach to help B2B businesses build real pipeline.",
+    },
+    buildBreadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "About Us", path: "/about" },
+    ]),
+  ];
+
   return (
     <div className="container-shell py-24 sm:py-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <SectionHeading
         eyebrow="About us"
         title="We help good companies get heard by the right people."
-        description="Propspora Leads combines careful research, verified data and thoughtful outreach to help B2B businesses start relevant, respectful conversations."
+        description="Prospora Leads combines careful research, verified data and thoughtful outreach to help B2B businesses start relevant, respectful conversations."
       />
       <div className="mt-16 grid gap-6 md:grid-cols-3">
         {[

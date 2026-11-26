@@ -1,18 +1,40 @@
 import type { Metadata } from "next";
 import { defaultMarkets } from "@/lib/content";
+import { getAppUrl } from "@/lib/site-url";
+import { buildBreadcrumbJsonLd, safeJsonLd } from "@/lib/seo";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
 
 export const metadata: Metadata = {
   title: "B2B Lead Generation Markets",
   description:
-    "See how Propspora Leads adapts B2B outreach to the USA, Canada, Middle East and Australia.",
+    "See how Prospora Leads adapts B2B outreach to the USA, Canada, Middle East, and Australia.",
   alternates: { canonical: "/markets" },
 };
 
 export default function MarketsPage() {
+  const origin = getAppUrl().origin;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "B2B Lead Generation Markets | Prospora Leads",
+      url: `${origin}/markets`,
+      description:
+        "Regional B2B outreach expertise across the United States, Canada, Middle East, and Australia.",
+    },
+    buildBreadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Markets", path: "/markets" },
+    ]),
+  ];
+
   return (
     <div className="container-shell py-24 sm:py-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <SectionHeading
         eyebrow="Markets we serve"
         title="Local awareness. Global reach."

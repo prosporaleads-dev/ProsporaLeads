@@ -58,7 +58,8 @@ export async function POST(request: NextRequest) {
       maxAge: 60 * 60 * 8,
     });
     return response;
-  } catch {
+  } catch (error) {
+    console.error("[POST /api/auth/login] error:", error);
     return NextResponse.json(
       { error: "Authentication service is unavailable." },
       { status: 500 },

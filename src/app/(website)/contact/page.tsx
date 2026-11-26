@@ -2,16 +2,51 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/site/contact-form";
 import { SectionHeading } from "@/components/site/section-heading";
 import { getSiteSettings } from "@/lib/content";
+import { getAppUrl } from "@/lib/site-url";
+import { buildBreadcrumbJsonLd, safeJsonLd } from "@/lib/seo";
+
 export const metadata: Metadata = {
-  title: "Contact Propspora Leads",
+  title: "Contact Prospora Leads",
   description:
-    "Book a free strategy call and tell Propspora Leads who you want to reach.",
+    "Book a free strategy call or email info@prosporaleads.com to discuss B2B lead generation and appointment setting for your team.",
   alternates: { canonical: "/contact" },
 };
+
 export default async function ContactPage() {
   const settings = await getSiteSettings();
+  const origin = getAppUrl().origin;
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      name: "Contact Prospora Leads",
+      url: `${origin}/contact`,
+      mainEntity: {
+        "@type": "Organization",
+        name: settings.siteName,
+        url: origin,
+        email: settings.contactEmail,
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: settings.contactEmail,
+          availableLanguage: ["English"],
+        },
+      },
+    },
+    buildBreadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact" },
+    ]),
+  ];
+
   return (
     <div className="container-shell py-24 sm:py-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div className="space-y-10">
           <SectionHeading

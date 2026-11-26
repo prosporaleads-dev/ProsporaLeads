@@ -93,7 +93,7 @@ export const defaultMarkets = [
 
 export const defaultFaqs = [
   {
-    question: "What does Propspora Leads do?",
+    question: "What does Prospora Leads do?",
     answer:
       "We research target companies, identify and verify decision-makers, and run personalised outreach designed to create qualified conversations and booked meetings.",
   },

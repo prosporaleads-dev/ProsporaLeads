@@ -41,7 +41,7 @@ CREATE TABLE "Page" (
 -- CreateTable
 CREATE TABLE "SiteSettings" (
     "id" TEXT NOT NULL DEFAULT 'singleton',
-    "siteName" TEXT NOT NULL DEFAULT 'Propspora Leads',
+    "siteName" TEXT NOT NULL DEFAULT 'Prospora Leads',
     "tagline" TEXT NOT NULL DEFAULT 'Qualified conversations. Real pipeline.',
     "logoUrl" TEXT NOT NULL DEFAULT '/brand/logo.webp',
     "faviconUrl" TEXT NOT NULL DEFAULT '/favicon.ico',
@@ -54,7 +54,7 @@ CREATE TABLE "SiteSettings" (
     "socialLinks" JSONB NOT NULL DEFAULT '{}',
     "navigation" JSONB NOT NULL DEFAULT '[]',
     "footerText" TEXT NOT NULL DEFAULT 'Research-led outreach for ambitious B2B teams.',
-    "defaultSeoTitle" TEXT NOT NULL DEFAULT 'Propspora Leads | B2B Lead Generation',
+    "defaultSeoTitle" TEXT NOT NULL DEFAULT 'Prospora Leads | B2B Lead Generation',
     "defaultSeoDescription" TEXT NOT NULL DEFAULT 'Research-led B2B lead generation, appointment setting and personalised outreach.',
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

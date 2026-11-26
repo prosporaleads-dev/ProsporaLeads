@@ -3,11 +3,12 @@ import { SectionHeading } from "@/components/site/section-heading";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Reveal } from "@/components/site/reveal";
+import { buildBreadcrumbJsonLd, safeJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Our Lead Generation Process",
   description:
-    "A transparent lead generation process from discovery and research to verification, outreach and reporting.",
+    "A transparent 6-step B2B lead generation process from discovery and research to verification, outreach, and reporting.",
   alternates: { canonical: "/how-we-work" },
 };
 
@@ -45,8 +46,32 @@ const steps = [
 ];
 
 export default function HowWeWorkPage() {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How Prospora Leads Runs B2B Lead Generation Campaigns",
+      description:
+        "Our 6-step research-led B2B lead generation process from discovery to booked meetings.",
+      step: steps.map((s, idx) => ({
+        "@type": "HowToStep",
+        position: idx + 1,
+        name: s.title,
+        text: s.body,
+      })),
+    },
+    buildBreadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "How We Work", path: "/how-we-work" },
+    ]),
+  ];
+
   return (
     <div className="container-shell py-24 sm:py-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <SectionHeading
         eyebrow="How we work"
         title="A clear process, from first call to booked meetings."

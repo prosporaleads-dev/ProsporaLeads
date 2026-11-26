@@ -9,7 +9,7 @@ import { defaultServices } from "./services/homeService";
 export function OurServices() {
   return (
     <section className="border-y border-border bg-brand-surface">
-      <div className="container-shell py-24 sm:py-32">
+      <div className="container-shell py-20 sm:py-28">
         <div className="mb-12 max-w-3xl text-center mx-auto">
           <p className="mb-3 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">
             <span className="h-1 w-12 rounded-full bg-brand-teal" /> Our
